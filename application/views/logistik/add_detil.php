@@ -115,7 +115,7 @@
  <div class="row-fluid">
   <div class="card-body">
             <div class="span6">
-                <form action=""<?php echo base_url(). 'c_detilpesanan/form_addpesanan'; ?>"" method="post">
+                <form action="<?php echo base_url(). 'c_detilpesanan/add_detil_pesanan/'.$id_pesanan; ?>" name ="userinput"  method="POST">
                     <table class="table table-condensed">
                         <thead>
                             <tr>
@@ -149,9 +149,86 @@
                             </tr>
                         </tfoot>
                     </table>
+
+
+                    <?php
+                      // // pas nambah disave dulu ke array terus kalo misal udah di click slesai lempar ke controller
+                      // if (isset($_POST['submit'])){
+                      //   $nama = $_POST['nama_input'];
+                      //   $spesifikasi = $_POST['spesifikasi_input'];
+                      //   $volume = $_POST['volume_input'];
+                      //   $satuan = $_POST['satuan_input'];
+
+                      //   print_r( $nama);
+
+                      //   redirect(base_url('c_detilpesanan/add_detailpesanan'))
+                      // }
+
+                    ?>
                 </form>
                 </div>
                 </div>
             </div>
             </main>
             </div>
+
+
+            <script>
+              
+              var i = 1;
+              function additem() {
+                var itemlist = document.getElementById('itemlist');
+                
+              //                membuat element
+                var row = document.createElement('tr');
+                var nama = document.createElement('td');
+                var spesifikasi = document.createElement('td');
+                var volume = document.createElement('td');
+                var satuan = document.createElement('td');
+                var aksi = document.createElement('td');
+
+              //                meng append element
+                itemlist.appendChild(row);
+                row.appendChild(nama);
+                row.appendChild(spesifikasi);
+                row.appendChild(volume);
+                row.appendChild(satuan);
+                row.appendChild(aksi);
+
+              //                membuat element input
+                var nama_input = document.createElement('input');
+                nama_input.setAttribute('name', 'nama_input[' + i + ']');
+                nama_input.setAttribute('class', 'form-control');
+
+                var spesifikasi_input = document.createElement('input');
+                spesifikasi_input.setAttribute('name', 'spesifikasi_input[' + i + ']');
+                spesifikasi_input.setAttribute('class', 'form-control');
+
+                var volume_input = document.createElement('input');
+                volume_input.setAttribute('name', 'volume_input[' + i + ']');
+                volume_input.setAttribute('class', 'form-control');
+
+                var satuan_input = document.createElement('input');
+                satuan_input.setAttribute('name', 'satuan_input[' + i + ']');
+                satuan_input.setAttribute('class', 'form-control');
+
+
+
+                var hapus = document.createElement('span');
+
+                nama.appendChild(nama_input);
+                spesifikasi.appendChild(spesifikasi_input);
+                volume.appendChild(volume_input);
+                satuan.appendChild(satuan_input);
+
+                aksi.appendChild(hapus);
+
+                hapus.innerHTML = '<button class="btn btn-small btn-default"><i class="glyphicon glyphicon-trash"></i>Hapus </button>';
+              //                Aksi Delete
+                hapus.onclick = function () {
+                    row.parentNode.removeChild(row);
+                };
+
+                i++;
+              }
+            </script>

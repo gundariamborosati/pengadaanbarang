@@ -52,24 +52,43 @@ class c_detilpesanan extends CI_Controller {
 	}
 
 	//form add detil pesanan
-	public function form_add_detilpesanan(){
-
+	public function form_add_detilpesanan($id){
+		//print_r($id);
+		$data = array(
+			"id_pesanan" => $id
+		);
 		$this->load->view('template/header');
-		$this->load->view('logistik/add_detil');
+		$this->load->view('logistik/add_detil', $data);
 		$this->load->view('template/footer');	
 	}
 
 	//aksi tambah detil pesanan
-	public function add_detailpesanan(){
-		$id = $this->m_pesanan->getIDPesanan();
-		$data = array(
-					'id_pesanan' => $id,
-					'username' => $this->input->post('username'),					
-					'nama_pesanan' => $this->input->post('nama_pesanan'),
-					'tanggal' => $this->input->post('tanggal')
-				);
-		$this->m_pesanan->insert_pesanan($data);
-		redirect(base_url('c_pesanan/form_adddetail'));
+	public function add_detil_pesanan($id_pesanan){
+
+		 $form_data = $this->input->post();
+		 $nama = $form_data['nama_input'];
+		 $spesifikasi = $form_data['spesifikasi_input'];
+		 $volume = $form_data['volume_input'];
+		 $satuan = $form_data['satuan_input'];
+
+		 $arrayData = array();
+
+		 foreach ($nama as $key => $j){
+		 	$id_detil_pesanan = $this->m_detil_pesanan->getIDDetilPesanan();
+		 	$arrayData = array (
+		 		"id_detil_pesanan" => $id_detil_pesanan,
+		 		"id_pesanan" => $id_pesanan,
+		 		"nama_barang" => $nama[$key],
+		 		"spesifikasi_barang" => $spesifikasi[$key],
+		 		"volume_barang" => $volume[$key],
+		 		"satuan" => $satuan[$key] 
+		 	);
+
+		 	$this->m_detil_pesanan->insertDetilPesanan($arrayData);
+
+		 }
+
+		redirect(base_url('c_pesanan/listPesanan'));
 				
 	}
 

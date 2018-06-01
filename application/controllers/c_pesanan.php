@@ -46,7 +46,7 @@ class c_pesanan extends CI_Controller {
 					'tanggal' => date('Y-,-d')
 				);
 		$this->m_pesanan->insert_pesanan($data);
-		redirect(base_url('c_detilpesanan/form_add_detilpesanan'));
+		redirect(base_url('c_detilpesanan/form_add_detilpesanan/'.$id));
 				
 	}
 
