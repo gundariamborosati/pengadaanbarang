@@ -41,11 +41,12 @@ class c_pesanan extends CI_Controller {
 					'id_pesanan' => $id,
 					'username' => $this->input->post('username'),
 					'vendor' => $this->input->post('vendor'),
+					'no_surat' => '/LOG-BUT/2018',
 					'nama_pesanan' => $this->input->post('nama_pesanan'),
-					'tanggal' => $this->input->post('tanggal')
+					'tanggal' => date('Y-,-d')
 				);
 		$this->m_pesanan->insert_pesanan($data);
-		// redirect(base_url('c_pesanan/form_adddetail'));
+		redirect(base_url('c_detilpesanan/form_add_detilpesanan'));
 				
 	}
 

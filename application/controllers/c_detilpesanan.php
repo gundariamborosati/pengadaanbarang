@@ -52,13 +52,10 @@ class c_detilpesanan extends CI_Controller {
 	}
 
 	//form add detil pesanan
-	public function form_addpesanan(){
+	public function form_add_detilpesanan(){
 
-		$data = array(
-				'nama_perusahaan' => $this->m_customer->getNamaPerusahaan()
-		);
 		$this->load->view('template/header');
-		$this->load->view('logistik/form_addpesanan',$data);
+		$this->load->view('logistik/add_detil');
 		$this->load->view('template/footer');	
 	}
 
