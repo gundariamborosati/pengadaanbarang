@@ -30,21 +30,24 @@ class c_progress extends CI_Controller {
 	$this->load->view('template/footer'); 
 	 }
 
-	
-
-
 
 	
 	 function input(){
+	 	$data = array(
+				'username' => $this->m_progress->ambilDataNamaCustomer(),
+				'nama_perusahaan' => $this->m_progress->ambilDataNamaVendor()
+				// 'hak_akses' => $this->m_suratkeluarcust->ambilDataUsernameLogist(),
+				
+			);
          $this->load->view('template/header');
-		$this->load->view('logistik/input_progress');
+		$this->load->view('logistik/input_progress',$data);
 		$this->load->view('template/footer');
     }  
 	function inputProgress(){
 		 $id_progress = $this->m_progress->getIdProgress();
         $tanggal     = $this->input->post('tanggal');
-        $nama_customer = $this->input->post('nama_customer');
-        $nama_vendor = $this->input->post('nama_vendor');
+        $username = $this->input->post('nama_customer');
+        $nama_perusahaan = $this->input->post('nama_vendor');
         $progress      = $this->input->post('progress');
         $kendala     = $this->input->post('kendala');
         
@@ -52,12 +55,13 @@ class c_progress extends CI_Controller {
          'id_progress' => $id_progress,
        
         'tanggal'     => $tanggal,
-        'nama_customer' => $nama_customer,
-        'nama_vendor' =>$nama_vendor,
+        'nama_customer' => $username,
+        'nama_vendor' =>$nama_perusahaan,
         'progress'      =>$progress,
         'kendala'     =>$kendala
         );
         $this->m_progress->inputProgress($data, 'progress_pengadaan');
+        var_dump( $this->m_progress->inputProgresss);
         redirect('c_progress/viewProgress');   
        }
 

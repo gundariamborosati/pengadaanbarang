@@ -132,16 +132,38 @@
                                                 <input name="tanggal" class="form-control" type="date" required>
                                              
                                             </div>
-                                            <div class="form-group">
-                                                <label>nama customer</label>
-                                                <input name="nama_customer" class="form-control" rows="3" required>
-                                               
-                                           </div>
-                                              <div class="form-group">
-                                                <label>nama vendor</label>
-                                                <input name="nama_vendor" class="form-control" required>
                                           
-                                            </div>
+                                             <div class="form-group ">
+                      <label >nama customer</label>
+                     
+                        <select class="form-control select2" style="min-width:250px;" required name="nama_customer" id="nama_customer">
+                          <option></option>
+                           <?php
+                           if($username){
+                             foreach($username as $d){
+                               echo "<option value='$d->username'>$d->username</option>";
+                              }
+                            }
+                          ?>
+                        </select>
+                      </div>
+                                                <div class="form-group ">
+                      <label >nama vendor</label>
+                    
+                        <select class="form-control select2" style="min-width:250px;" required name="nama_vendor" id="nama_vendor">
+                          <option></option>
+                           <?php
+                           if($nama_perusahaan){
+                             foreach($nama_perusahaan as $d){
+                               echo "<option value='$d->username'>$d->nama_perusahaan</option>";
+                              }
+                            }
+                          ?>
+                        </select>
+                      </div>
+                      
+                    
+                                              
                                               <div class="form-group">
                                                 <label>progress</label>
                                                 <input name="progress" class="form-control" required>

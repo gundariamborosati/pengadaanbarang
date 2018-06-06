@@ -46,11 +46,36 @@ class m_progress extends CI_Model {
        return $kodejadi;
    }
 
- 
-
-function getAllStatus(){
-    return $this->db->get('status_pesanan');
+     function ambilDataNamaCustomer(){
+    $this->db->order_by('username','asc');
+    $query = $this->db->get('customer');
+    if($query->num_rows()>0)
+    {
+      return $query->result();
+    }
+    else
+    {
+      return false;
+    }
   }
+
+      function ambilDataNamaVendor(){
+    $this->db->order_by('username','asc');
+    $query = $this->db->get('vendor');
+    if($query->num_rows()>0)
+    {
+      return $query->result();
+    }
+    else
+    {
+      return false;
+    }
+  }
+
+
+// function getAllStatus(){
+//     return $this->db->get('status_pesanan');
+//   }
 
 
 
