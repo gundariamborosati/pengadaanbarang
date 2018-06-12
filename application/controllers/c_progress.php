@@ -36,7 +36,7 @@ class c_progress extends CI_Controller {
 	 	$data = array(
 				'username' => $this->m_progress->ambilDataNamaCustomer(),
 				'nama_perusahaan' => $this->m_progress->ambilDataNamaVendor()
-				// 'hak_akses' => $this->m_suratkeluarcust->ambilDataUsernameLogist(),
+				
 				
 			);
          $this->load->view('template/header');
