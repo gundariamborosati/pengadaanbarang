@@ -47,7 +47,7 @@ class m_progress extends CI_Model {
    }
 
      function ambilDataNamaCustomer(){
-    $this->db->order_by('username','asc');
+    $this->db->order_by('nama_perusahaan','asc');
     $query = $this->db->get('customer');
     if($query->num_rows()>0)
     {
@@ -60,7 +60,7 @@ class m_progress extends CI_Model {
   }
 
       function ambilDataNamaVendor(){
-    $this->db->order_by('username','asc');
+    $this->db->order_by('nama_perusahaan','asc');
     $query = $this->db->get('vendor');
     if($query->num_rows()>0)
     {

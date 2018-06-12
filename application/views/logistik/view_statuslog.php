@@ -109,11 +109,12 @@
                 <thead>
                   <tr>
                   <th> no pesanan</th>
-                  <th>tanggal</th>
+                  <th>tanggal mulai</th>
                   <th> username</th>
                     <th>status</th>
                     <th>catatan</th>
-                    <th> update</th>                   
+                    <th> update/hapus</th>  
+                    <th>tanggal update selesai</th>                 
 
                     
                   </tr>
@@ -127,16 +128,16 @@
                   
                   <tr>
                   <td><?php echo $ul->no_pesanan ;?></td>
-                   <td><?php echo $ul->tanggal;?></td>
+                   <td><?php echo $ul->tgl_mulai;?></td>
                      <td><?php echo $ul->username;?></td>
                     <td><?php echo $ul->status ;?></td>
                     <td><?php echo $ul->catatan ;?></td>
-                                                 
 
-           
                <td>
             
-            <a href="<?=base_url()?>c_statusPesanan/edit/<?=$ul->no_pesanan?>" class="btn btn-primary"><i class="fa fa-pencil-square-o"></i></a></td></center>
+            <a href="<?=base_url()?>c_statusPesanan/edit/<?=$ul->no_pesanan?>" class="btn btn-primary"><i class="fa fa-pencil-square-o"></i></a>
+            <a href="<?=base_url()?>c_statusPesanan/hapusStatus/<?=$ul->no_pesanan?>" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus data?')"><i class="fa fa-trash"></i></a> </td></center>
+             <td><?php echo $ul->tgl_selesai;?></td>
                   </tr>
             
                   </tr>

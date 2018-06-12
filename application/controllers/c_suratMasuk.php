@@ -84,12 +84,19 @@ class c_suratMasuk extends CI_Controller {
 	// }
 
 	 
-	 	public function surat_masukCustomer(){ //dihalaman customer
+	public function surat_masukCustomer(){ //dihalaman customer
 		$data ['surat_masuk'] = $this->m_suratMasuk->kotak_masuk_customer($this->session->userdata('username'));
 		$this->load->view('template/header');
 		$this->load->view('customer/view_suratmasuk',$data);
 		$this->load->view('template/footer'); 
-  }
+  	}
+
+  	public function surat_masukVendor(){
+  		$data ['surat_masuk'] = $this->m_suratMasuk->kotak_masuk_vendor($this->session->userdata('username'));
+  		$this->load->view('template/header');
+		$this->load->view('vendor/list_suratmasuk',$data);
+		$this->load->view('template/footer'); 
+  	}
 
   
 }

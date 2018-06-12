@@ -7,7 +7,6 @@ class c_vendor extends CI_Controller {
 		parent::__construct();		
 		$this->load->model('m_vendor');
 	}
-
 	public function home(){
 		$this->load->view('template/header'); // default template
 		$this->load->view('vendor/dashboard'); // dashboard vendornya

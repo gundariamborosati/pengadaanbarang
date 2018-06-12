@@ -168,6 +168,7 @@ $(document).ready(function() {
      $('#dataSuratMasuk').DataTable();
      $('#dataPesanan').DataTable();
      $('#detilPesanan').DataTable();
+     
 
       // modals untuk di detil
       $('#edit-data').on('show.bs.modal', function (event) {
@@ -183,6 +184,18 @@ $(document).ready(function() {
           modal.find('#id_detil_pesanan').attr("value",div.data('iddetilpesan'));
       });
 
+      //modals untuk detail pesanan
+      $('#edit-pesanan').on('show.bs.modal', function (event) {
+          var div = $(event.relatedTarget); // Tombol dimana modal di tampilkan
+          var modal          = $(this);
+          
+          //console.log(div);
+          // Isi nilai pada field
+          modal.find('#nama_pesanan').attr("value",div.data('namapesanan')); //div.data jangan huruf camelCase
+          modal.find('#username').attr("value",div.data('username'));
+          modal.find('#vendor').attr("value",div.data('vendor'));          
+          modal.find('#id_pesanan').attr("value",div.data('idpesanan'));
+      });
 
 });
 

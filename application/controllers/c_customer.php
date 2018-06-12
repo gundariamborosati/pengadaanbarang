@@ -7,7 +7,6 @@ class c_customer extends CI_Controller {
 		$this->load->model('m_customer');
 		$this->load->model('m_barang');
 
-		
 	}
 		 //call model
 	public function home(){
@@ -156,8 +155,7 @@ class c_customer extends CI_Controller {
 		$this->load->view('customer/kelola_profile');
 		$this->load->view('template/footer');
 	}
-
-	public function updatePassword(){
+public function updatePassword(){
 		$this->form_validation->set_rules('curr_password', 'current password','required|alpha_numeric');
 		$this->form_validation->set_rules('new_password', 'new password','required|alpha_numeric');
 		$this->form_validation->set_rules('conf_password', 'confirm password','required|alpha_numeric');
@@ -173,40 +171,33 @@ class c_customer extends CI_Controller {
 							?>
 	                    		 <script type=text/javascript>alert("update sukses!");</script>
 	        				<?php
-		        			$this->load->view('template/header');
-							
-							$this->viewProfile();
+		        		
+							$this->viewProfile();							
 						}else{						
 							?>
 	                    		 <script type=text/javascript>alert("Gagal update password!");</script>
 	        				<?php
-	        				$this->load->view('template/header');
-							$this->load->view('customer/kelola_profile');
-							$this->load->view('template/footer');
+	        				
+							$this->viewProfile();			
 						}
 					}else{
 						?>
-	                     <script type=text/javascript>alert("password baru dan confirm password tidak cocok!");</script>
+	                     <script type=text/javascript>alert("password baru dan confirm password baru tidak cocok!");</script>
 	        			<?php
-	        			$this->load->view('template/header');
-						 $this->load->view('customer/kelola_profile');
-						$this->load->view('template/footer');				
+	        			
+							$this->viewProfile();						
 					}
 				}else{
 					?>
                      <script type=text/javascript>alert("password lama yang anda masukan salah!");</script>
         			<?php
-        			$this->load->view('template/header');
-            	 $this->load->view('customer/kelola_profile');
-	
-					 $this->load->view('template/footer');
-					redirect('c_customer/viewProfile');
+        					
+							$this->viewProfile();			
 				}				
 		}else{
-			  $this->load->view('customer/kelola_profile');
+				$this->load->view('customer/kelola_profile');
 		}
 	}
-
 
 
  public function keluar()

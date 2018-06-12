@@ -140,20 +140,30 @@
                   <tr>
                     <td><?php  echo $no; ?></td>
                     <td><?php  echo $pecah['id_pesanan']; ?></td>
-                    <td><?php echo $pecah['nama_perusahaan'];?></td>     
+                    <td><?php echo $pecah['username'];?></td>     
                     <td><?php echo $pecah['vendor'];?></td>     
                     <td><?php echo $pecah['no_surat'];?></td>     
                     <td><?php echo $pecah['nama_pesanan'];?></td>                     
                     <td><?php echo $pecah['tanggal'];?></td>                     
                      <td>  
                        <a href="<?php echo base_url('/c_detilpesanan/detil_pesanan/'.$pecah['id_pesanan']);?>" class="btn btn-success"> <i class="fa fa-external-link"> </i> detail</a>
-                        <a href="<?php echo base_url('/c_pesanan/edit_pesanan/'.$pecah['id_pesanan']);?>" class="btn btn-primary"> <i class="fa fa-pencil"></i> Edit</a>
+
+                        <a href="javascript:;"
+                          data-idpesanan = "<?php echo $pecah['id_pesanan'];?>"
+                          data-username = "<?php echo $pecah['username'];?>"
+                          data-vendor = "<?php echo $pecah['vendor'];?>"                          
+                          data-namapesanan = "<?php echo $pecah['nama_pesanan'];?>"
+                          data-toggle="modal" data-target="#edit-pesanan">
+                        <button data-toggle="modal" data-target="#ubah-data" class="btn btn-primary"><i class="fa fa-pencil"></i>Edit</button> </a>
+
                         <a href="<?php echo base_url('/c_surat/suratSPPH/'.$pecah['id_pesanan']);?>" class="btn btn-primary"> <i class="fa fa-pencil"></i> Print</a>
 
+                        <a href="<?php echo base_url('/c_suratKeluar/form_kirimspph/'.$pecah['id_pesanan']);?>" class="btn btn-primary"> <i class="fa fa-pencil"></i> Kirim </a>
+<!-- 
                          <a href="javascript:;"
                           data-idpesanan = "<?php echo $pecah['id_pesanan'];?>"
                           data-toggle="modal" data-target="#edit-data"
-                        > <button data-toggle="modal" data-target="#ubah-data" class="btn btn-info"> <i class="fa fa-pencil"></i> Kirim  </button></a>
+                        > <button data-toggle="modal" data-target="#ubah-data" class="btn btn-info"> <i class="fa fa-pencil"></i> Kirim  </button></a> -->
                     </td>
                   </tr>
                   <?php
@@ -168,40 +178,105 @@
 </main>
 </div>
 
-<!-- Modal -->
-  <div id="edit-data" class=" modal fade" role="dialog">
+<div id="edit-pesanan" class=" modal fade" role="dialog">
     <div class="modal-dialog">
       <!-- konten modal-->
       <div class="modal-content">
         <!-- heading modal -->
-        <div class="modal-header ">
-          <h4>Kirim Dokumen</h4>
+        <div class="modal-header">
+          <h4>Edit Pesanan</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           
           
         </div>
-        <!-- body modal -->
-        <!--  tambah container -->
-        <div class="container-fluid">
-        <p>
-        Pilih vendor dan Upload dokumen yang sudah ditanda-tangani oleh direktur.
-        Terima kasih.
-          
-        </p>
-          
-          
+        <div class="container-fluid">      
           <?php echo validation_errors('<div class="alert alert-danger">','</div>'); ?>
-          
-          <form action="<?php echo base_url(). 'c_pesanan/kirimPesan'?>" method="post">
-            <input type="hidden" id="id_detil_pesanan" name="id_detil_pesanan">
+          <form action="<?php echo base_url(). 'c_pesanan/update_pesanan/'.$pecah['id_pesanan'] ; ?>" method="post">
+            <input type="hidden" id="id_pesanan" name="id_pesanan">
+            <table class="table-form" width="100%">
+              <br>
+              <tr>
+                <td width="20%">Nama Pesanan</td>
+                <td><b><input type="text"  id="nama_pesanan" name="nama_pesanan" class="form-control" style="width: 200px" required></b></td>
+              </tr>
+              <tr>
+                <td width="30%">Nama Perusahaan </td>
+                <td><b><input type="text" id="username" name="username"  class="form-control" style="width:200px"  required></b></td>
+              </tr>
 
+               <tr>
+                <td width="30%">Vendor</td>
+                <td><b><input type="text" id="vendor" name="vendor"  class="form-control" style="width:200px"  required></b></td>
+              </tr>
+
+              <tr><td colspan="2">
+                  <br>                  
                   <!-- footer modal -->
-                <div class="modal-footer">
+                  <div class="modal-footer">
                     <button type="submit"  class="btn btn-success" value="submit"><i class="fa fa-check icon-white"></i> Simpan</button>
                   </form>
                   <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
                 </div>
+              </table>
+            </fieldset>
           </form>
         </div>
       </div>
     </div>
+  </div>
+
+<!-- Modal -->
+<div id="edit-data" class=" modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- konten modal-->
+      <div class="modal-content">
+        <!-- heading modal -->
+        <div class="modal-header">
+          <h4>Kirim Surat</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          
+          
+        </div>
+        <div class="container-fluid">      
+          <?php echo validation_errors('<div class="alert alert-danger">','</div>'); ?>
+          <form action="<?php echo base_url(). 'c_suratKeluar/kirim_spphvendor'; ?>" enctype="multipart/form-data" method="post">
+            <table class="table-form" width="100%">
+              <br>
+              <tr>
+                <td width="20%">Upload File</td>
+                <td><b><input type="file" class="form-control" placeholder="choose file" name="file" value="file" required></b></td>
+              </tr>
+
+
+              <tr>
+                <td width="30%">Pesan </td>
+                <td><b><input type="textarea" id="pesan" name="pesan"  class="form-control" style="width:200px" ></b></td>
+              </tr>
+
+               <tr>
+                <td width="30%">Penanggung Jawab</td>
+                <td><b><input type="text" id="penanggung_jawab" name="penanggung_jawab"  class="form-control" style="width:200px"  required></b></td>
+              </tr>
+
+              <tr>
+                <td width="30%">No Hp</td>
+                <td><b><input type="text" id="no_hp" name="no_hp"  class="form-control" style="width:200px"  required></b></td>
+              </tr>
+
+
+              <tr><td colspan="2">
+                  <br>                  
+                  <!-- footer modal -->
+                  <div class="modal-footer">
+                    <button type="submit"  class="btn btn-success" value="submit"><i class="fa fa-check icon-white"></i> Simpan</button>
+                  </form>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+                </div>
+              </table>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+

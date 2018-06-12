@@ -43,17 +43,22 @@
           <li class="nav-item">
             <a class="nav-link" href="widgets.html"><i class="fa fa-home"></i> Home </a>
           </li>
-          <li class="nav-item nav-dropdown">
-            <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-file"></i> Kelola dokumen</a>
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo base_url('/c_suratkeluar/formsph');?>"><i class="fa fa-paper-plane"></i> Kirim Surat </a>
+          </li>
+
+           <li class="nav-item nav-dropdown"> 
+          <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-file"></i> Kelola dokumen</a>          
             <ul class="nav-dropdown-items">
               <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-share"></i> Send Dokumen</a>
+                <a class="nav-link" href=" <?php echo base_url('/c_suratKeluar/viewSuratKeluarVendor');?>"><i class="fa fa-share"></i> Surat Keluar</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-download"></i> Receive Dokumen</a>
-              </li>
+                <a class="nav-link" href="<?php echo base_url('/c_suratMasuk/');?>"><i class="fa fa-download"></i> Kotak Masuk</a>
+              </li> 
             </ul>
-          </li>
+          </li>          
+
           <li class="nav-item">
             <a class="nav-link" href="<?php echo base_url('/c_barang/view_barang');?>"><i class="fa fa-square"></i> Kelola Barang </a>
           </li>
@@ -150,15 +155,7 @@
                              <input type="text" name="no_surat" class="form-control"  rows="7" cols="80" ></textarea>
                               </div>
                               </div>
-                  <!-- tgl-->
-                   <div class="form-group ">
-                      <label for="tgl" class="col-md-3 control-label">Tanggal</label>
-                      <div class="col-md-7 col-sm-12 required">
-                        <div class="input-group date">
-                          <input type="date" name="tgl_surat" class="form-control pull-right" id="datepickerNow" data-date-format="dd/mm/yyyy" required>
-                        </div>
-                      </div>
-                  </div>
+                  <!-- tgl-->                   
                   <div class="form-group">
                             <label for="tipe" class="col-md-3 control-label">upload</label>
                              <div class="col-md-7 required">

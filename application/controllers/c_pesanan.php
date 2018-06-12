@@ -22,6 +22,7 @@ class c_pesanan extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
+
 	//form add barang
 	public function formadd(){
 
@@ -43,7 +44,7 @@ class c_pesanan extends CI_Controller {
 					'vendor' => $this->input->post('vendor'),
 					'no_surat' => '/LOG-BUT/2018',
 					'nama_pesanan' => $this->input->post('nama_pesanan'),
-					'tanggal' => date('Y-,-d')
+					'tanggal' => date('Y-m-d')
 				);
 		$this->m_pesanan->insert_pesanan($data);
 		redirect(base_url('c_detilpesanan/form_add_detilpesanan/'.$id));

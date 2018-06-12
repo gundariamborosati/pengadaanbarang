@@ -115,7 +115,8 @@
                 <thead>
                    <tr>
                   <th> no pesanan </th>
-                  <th> tanggal </th>
+                  <th> tanggal mulai</th>
+                  <th> tanggal update selesai </th>
                     <th>status</th>
                     <th> catatan </th>
 
@@ -133,7 +134,8 @@
                   
                   <tr>
                   <td><?php echo $st['no_pesanan'] ;?></td>
-                   <td><?php echo $st['tanggal'] ;?></td>
+                   <td><?php echo $st['tgl_mulai'] ;?></td>
+                     <td><?php echo $st['tgl_selesai'] ;?></td>
                     <td><?php echo $st['status'];?></td>
                        <td><?php echo $st['catatan'];?></td>
                  

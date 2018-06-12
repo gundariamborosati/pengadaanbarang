@@ -49,18 +49,18 @@ function input()
 		$this->load->view('template/footer');
 	}
 
+
 	
 	function inputStatusPesanan(){
     $no = $this->input->post('txt_id');
     $username = $this->input->post('username');
-    $tanggal = $this->input->post('txt_tgl');
       $status = $this->input->post('status');
        $catatan = $this->input->post('catatan');
 
     $data = array(
       'no_pesanan'=> $no,
       'username' => $username,
-      'tanggal' => $tanggal,
+      'tgl_mulai' => date('Y-m-d'),
       'status' => $status,
           'catatan' => $catatan,
       );
@@ -84,7 +84,7 @@ function input()
 		$catatan=$this->input->post('catatan');
 
 		$data=array(
-			'tanggal' => $tanggal,
+			'tgl_selesai' => date('Y-m-d'),
 			'status'=>$status,
 			'catatan'=>$catatan
 			);
@@ -97,6 +97,12 @@ function input()
 	}
 
 	
+function hapusStatus($no_pesanan){
+        $where=array('no_pesanan' => $no_pesanan);
+        $this->m_statusPesanan->delete($where,'status_pesanan');
+        redirect('c_statusPesanan/viewStatuslog');
+        }
+
 
   public function keluar()
 	{

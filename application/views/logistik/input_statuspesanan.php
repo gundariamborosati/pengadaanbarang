@@ -151,14 +151,14 @@
                   <!-- tgl-->
                 
 
-                  <div class="form-group ">
+                 <!--  <div class="form-group ">
                       <label for="tgl" class="col-md-3 control-label">Tanggal</label>
                       <div class="col-md-7 col-sm-12 required">
                         <div class="input-group date">
                           <input type="date" name="txt_tgl" class="form-control pull-right" id="datepickerNow" data-date-format="dd/mm/yyyy" required>
                         </div>
                       </div>
-                  </div>
+                  </div> -->
               <div class="form-group ">
                       <label for="tipe" class="col-md-3 control-label">status</label>
                       <div class="col-md-7 required">

@@ -5,6 +5,7 @@ class c_ulasan extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->model('m_ulasan');
+		$this->load->model('m_progress');
 
 		
 	}
@@ -43,21 +44,25 @@ class c_ulasan extends CI_Controller {
 
 
 	function input(){
+			$data = array(
+				'username' => $this->m_ulasan->ambilDataNamaVendor(),
+				
+			);
          $this->load->view('template/header');
 		$this->load->view('customer/input_ulasan');
 		$this->load->view('template/footer');
     }  
 
 	function inputUlasan(){
-		 $tanggal  = $this->input->post('tanggal');
-		  $dari_vendor  = $this->input->post('dari_vendor');
+		  $username  = $this->input->post('dari_vendor');
 		   $rating  = $this->input->post('rating');
          $komentar  = $this->input->post('komentar');
         $data = array(
-        'tanggal' => $tanggal,
-        'dari_vendor' => $dari_vendor,
+        
+        'dari_vendor' => $username,
         'rating' => $rating,
         'komentar' => $komentar,
+        'tanggal' => $tanggal,
         'username' => $this->session->userdata('username')
         );
         $this->m_ulasan->inputUlasan($data, 'ulasan');

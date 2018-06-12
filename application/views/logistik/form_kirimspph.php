@@ -106,159 +106,88 @@
 
         <!-- Breadcrumb Menu-->
       </ol>
-
-
+      <!-- /.conainer-fluid -->
+     
       <div class="container-fluid">
         <div class="card card-accent-success">
           <div class="card-header">
-            <h3>  kotak masuk Dari Customer dan Vendor</h3>
+            <h5> Kirim Spph </h5>
           </div>
-           <div class="pull-right">
+          <body>
+                  <!-- Navigation -->
 
-  
-  <div class="card-body">
-                <table id="dataUlasan" class="table ">
-                <thead>
-                   <tr>
-              <th> dari </th>
-              <th> penanggung jawab </th>
-              <th> contact </th>
-                <th> jenis_surat </th>
-                  <th>nomor surat </th>
-                    <th>tanggal</th>
-                    <th> surat </th>
-                    <th>pesan</th>
-                 
-
-
-                    
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php              
-                  
-                 foreach($surat_masuk as $st):
-                
-                  ?>
-                  
-                  <tr>
-                  <td><?php echo $st['username'] ;?></td>
-                     <td><?php echo $st['penanggung_jawab'] ;?></td>
-                     <td><?php echo $st['no_hp'] ;?></td>
-                   <td><?php echo $st['jenis_surat'] ;?></td>
-                   <td><?php echo $st['no_surat'] ;?></td>
-                    <td><?php echo $st['tgl_surat'];?></td>
-                    
-                      <td><?php echo "<br><b>File : </b><i><a href='".base_URL()."asset/upload/surat_keluar/".$st['file']."' target='_blank'>".$st['file']."</a>"?></td> 
-                                 <!--  DIBAWAH UNTUK MODAL   --> 
-             <td
-             <a href="#view<?php echo $st['id_surat'] ;?>" data-toggle="modal"> <button type="button" class="btn btn-primary"><i class="fa fa-external-link"> </i> pesan<span class="" aria-hidden="true"></span></button></a></td>
-             <!-- Modal Tambah -->
-  <div   role="dialog" tabindex="" id="view<?php echo  $st['id_surat']; ?>" class="modal fade">
-      <div class="modal-dialog">
-      
-          <div class="modal-content">
-              <div class="modal-header">
-              <h4 class="modal-title">pesan</h4> 
-                  <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>         
-              </div>
-
-
-                <div class="modal-body">
-               <?php echo $st['pesan'] ;?></td>
-              
-                       </div> 
-                        <div class="form-group">
-
+   
+      <?php foreach($pesanan as $detil): ?>
+     <div id="page-wrapper">
+      <div class="row">
+          <div class="col-lg-12">
+                       
+          </div>
+                    <!-- /.col-lg-12 -->
+          </div>
+                <!-- /.row -->
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                      </div>
+                           <!--  <div class="panel-body"> -->
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <?php echo form_open_multipart(base_url('c_suratKeluar/kirim_spphvendor')) ;?>
+                            <div class="form-group">
+                 <!-- departemen -->
                             
-                    <div class="modal-footer">
-                        
-                        <button type="button" class="btn btn-warning" data-dismiss="modal"> Back</button>
-                    </div>
-                  </form>
-              </div>
-          </div>
-      </div>
-  </div>
-  <!-- END Modal Tambah -->
+                               <div class="form-group">
+                                <label for="tipe" class="col-md-3 control-label">Vendor</label>
+                                  <div class="col-md-7 required">
+                                      <input type="type" id="tujuan_vendor" name="tujuan_vendor" velue="<?php echo $user['status']; ?>" ">        
+                                  </div>
+                              </div>
+                            <input type="hidden" id="tujuan_vendor" name="tujuan_vendor" velue="">
+                            <input type="hidden" id="no_surat" name="no_surat" velue="$detil['no_surat']">
+                            <input type="hidden" id="jenis_surat" name="jenis_surat" velue="SPPH">                            
                          
-          <!--   <a href="" class="btn btn-primary"><i class="fa fa-pencil-square-o"></i></a></td></center> -->
-                 
-           
-             
-            
-                  </tr>
-                  <?php
-                  endforeach;
-                  ?>
-            </tbody>
-              </table>
+                              <div class="form-group">
+                                <label for="tipe" class="col-md-3 control-label">Upload File </label>
+                                  <div class="col-md-7 required">
+                                    <input type="file" class="form-control" placeholder="choose file" name="file" value="file" required>
+                                  </div>
+                              </div>
+
+                            <div class="form-group">
+                              <label for="tipe" class="col-md-3 control-label"><br>Penanggung Jawab </label>
+                                <div class="col-md-7 required">
+                                  <input type="text" name="penanggung_jawab" class="form-control"  rows="7" cols="80" required></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="tipe" class="col-md-3 control-label">Contact</label>
+                                <div class="col-md-7 required">
+                                  <input type="text" name="no_hp" class="form-control"  rows="7" cols="80" required></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="tipe" class="col-md-3 control-label">pesan</label>
+                                <div class="col-md-7 required">
+                                  <textarea name="pesan" class="form-control"  rows="7" cols="80" ></textarea>
+                                </div>
+                            </div>
+
+                              <div class="form-group">
+                                <div class="col-md-7 required">
+                                  <button type="submit" name="simpan" value="submit" class="btn btn-primary">kirim</button>
+                                </div>
+                              </div> 
+                          </form>
+                              </div>
             </div>
-          </div>
-      </div>
-
-</div>
-
-
-
-      <div class="container-fluid">
-        <div class="card card-accent-success">
-          <div class="card-header">
-            <h3>  Approve SPPH Dari Direktur </h3>
-          </div>
-          <div class="card-body">
-            
-            <div>
-              
-              <table id="dataCustomer" class="table ">
-                <thead>
-                  <tr>
-                <th> dari perusahaan</th>
-                <th> jenis_surat </th>
-                  <th> penanggung jawab </th>
-              <th> contact </th>
-                  <th>nomor surat </th>
-                    <th>tanggal</th>
-                    <th> surat </th>
-                   
-                    <th> status approve</th>
-                  </tr>
-                </thead>
-                <tbody>
-                   <?php              
-                  
-                 foreach($surat_approve as $st):
-                
-                  ?>
-                  
-                    <tr>
-                    <td><?php echo $st->username ;?></td>
-                   <td><?php echo $st->jenis_surat ;?></td>
-                      <td><?php echo $st->penanggung_jawab ;?></td>
-                         <td><?php echo $st->no_hp ;?></td>
-                   <td><?php echo $st->no_surat ;?></td>
-                    <td><?php echo $st->tgl_surat;?></td>
-                    
-                      <td><?php echo "<br><b>File : </b><i><a href='".base_URL()."asset/upload/surat_keluar/".$st->file."' target='_blank'>".$st->file."</a>"?></td> 
-                     
-                      <td><?php echo $st->status_approve ;?></td> 
-                      
-    </div>
-          <!--   <a href="" class="btn btn-primary"><i class="fa fa-pencil-square-o"></i></a></td></center> -->
-                 
-           
-             
-            
-                 </tr>
-                  <?php
-                  endforeach;
-                  ?>
-                </tbody>
-              </table>
-              
+           </div>
             </div>
-    </div>
-  </div>
-</div>
-</main>
-</div>
+            </div>
+            <?php endforeach; ?>
+            </main>
+            </div>

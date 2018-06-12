@@ -121,12 +121,6 @@
                                     <div class="col-lg-6">
                                         
                                         <?php echo form_open('c_progress/inputProgress'); ?>
-                                            <!--  <div class="form-group">
-                                                <label>id progress</label>
-                                                <input name="id_progress" class="form-control" required>
-                                                
-                                            </div>  
-                                             -->
                                             <div class="form-group">
                                                 <label>Tanggal</label>
                                                 <input name="tanggal" class="form-control" type="date" required>
@@ -141,7 +135,7 @@
                            <?php
                            if($username){
                              foreach($username as $d){
-                               echo "<option value='$d->username'>$d->username</option>";
+                               echo "<option value='$d->username'>$d->nama_perusahaan</option>";
                               }
                             }
                           ?>

@@ -65,33 +65,20 @@ class m_pesanan extends CI_Model {
 		$this->db->from('barang');
 		$this->db->order_by('idbarang', 'DESC');
 	}
+	
 	function deletePesanan($where,$table){
 		$this->db->where($where);
 		$this->db->delete($table);
-	}
-
-	function detail($where,$table){		
-		return $this->db->get_where($table,$where);
 	}
 
 	function updatePesanan($where,$data,$table){
 		$this->db->where($where);
 		$this->db->update($table,$data);
 	}
-
-	function updateGambar(){
-				//$relative_url = './avatar/'. $this->upload->file_name;
-				//check if password was updated
-				
- 				$id = 'idbarang';
-				$this->db->where('idbarang', $id);
-				$this->db->update('barang', $data);
-				if($this->db->affected_rows() > 0){					
-					return true;
-		 		} else {
-		 			return false;
-		 		}
-			}
+	
+	function detail($where,$table){		
+		return $this->db->get_where($table,$where);
+	}
 
 	function getIDPesanan(){
 		$this->db->select('RIGHT(pesanan.id_pesanan,5) as id', FALSE);

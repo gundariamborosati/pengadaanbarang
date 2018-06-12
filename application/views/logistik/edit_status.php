@@ -112,13 +112,13 @@
                                         <input name="no_pesanan" type="text" id="no_pesanan" value="<?php echo $status[0]->no_pesanan ?>" class="form-control" readonly> 
                                                </div>  
                                                </div>
-                                                 <div class="form-group">
+                                       <!--           <div class="form-group">
                                           <label for="tipe" class="col-md-3 control-label">tanggal </label>
                                             <div class="col-md-7 col-sm-12 required">
                                        <input name="tanggal" type="date" id="no_pesanan" value="<?php echo $status[0]->tanggal ?>" class="form-control"> 
 
                                                </div>  
-                                               </div>
+                                               </div> -->
                                         
                                  <div class="form-group ">
                                         <label for="tipe" class="col-md-3 control-label">status</label>
