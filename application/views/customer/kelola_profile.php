@@ -94,14 +94,15 @@
     <!-- Main content -->
      <main class="main"> 
 
-      <!-- Breadcrumb -->
+           <!-- Breadcrumb -->
       <ol class="breadcrumb">
-        <li class="breadcrumb-item">Home</li>
-        <li class="breadcrumb-item"><a href="#">Customer</a></li>
-        <li class="breadcrumb-item active">Dashboard</li>
+        <li class="breadcrumb-item"><a href=" <?php echo base_url('/c_customer/home');?> "> Home</a></li>
+        <li class="breadcrumb-item"><a href="#"> Halaman Customer</a></li>
+ 
 
         <!-- Breadcrumb Menu-->
       </ol>
+  
   <?php foreach($profile as $user): ?>
     <div class="col-md-12">
       <div class="card">

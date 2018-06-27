@@ -45,37 +45,42 @@ class m_progress extends CI_Model {
        $kodejadi = "PROGRESS-".$kodemax;    
        return $kodejadi;
    }
+  //    function ambilDataNamaCustomer(){
+  //   $this->db->order_by('nama_perusahaan','asc');
+  //   $query = $this->db->get('customer');
+  //   if($query->num_rows()>0)
+  //   {
+  //     return $query->result();
+  //   }
+  //   else
+  //   {
+  //     return false;
+  //   }
+  // }
 
-     function ambilDataNamaCustomer(){
-    $this->db->order_by('nama_perusahaan','asc');
-    $query = $this->db->get('customer');
-    if($query->num_rows()>0)
-    {
-      return $query->result();
-    }
-    else
-    {
-      return false;
-    }
-  }
+  //     function ambilDataNamaVendor(){
+  //   $this->db->order_by('nama_perusahaan','asc');
+  //   $query = $this->db->get('vendor');
+  //   if($query->num_rows()>0)
+  //   {
+  //     return $query->result();
+  //   }
+  //   else
+  //   {
+  //     return false;
+  //   }
+  // }
 
-      function ambilDataNamaVendor(){
-    $this->db->order_by('nama_perusahaan','asc');
+  function ambilDataNamaVendor(){
     $query = $this->db->get('vendor');
-    if($query->num_rows()>0)
-    {
-      return $query->result();
-    }
-    else
-    {
-      return false;
-    }
-  }
+    return $query->result_array();
+}
 
 
-// function getAllStatus(){
-//     return $this->db->get('status_pesanan');
-//   }
+ function ambilDataNamaCustomer(){
+    $query = $this->db->get('customer');
+    return $query->result_array();
+}
 
 
 

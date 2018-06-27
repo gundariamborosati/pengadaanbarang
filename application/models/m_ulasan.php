@@ -24,7 +24,8 @@ class m_ulasan extends CI_Model {
        $this->db->delete($table);
     }
 
-       function ambilDataNamaVendor(){
+
+    function ambilDataNamaVendor(){
     $this->db->order_by('username','asc');
     $query = $this->db->get('vendor');
     if($query->num_rows()>0)

@@ -49,7 +49,7 @@ class c_ulasan extends CI_Controller {
 				
 			);
          $this->load->view('template/header');
-		$this->load->view('customer/input_ulasan');
+		$this->load->view('customer/input_ulasan',$data);
 		$this->load->view('template/footer');
     }  
 
@@ -62,7 +62,7 @@ class c_ulasan extends CI_Controller {
         'dari_vendor' => $username,
         'rating' => $rating,
         'komentar' => $komentar,
-        'tanggal' => $tanggal,
+        'tanggal' => date('Y-m-d'),
         'username' => $this->session->userdata('username')
         );
         $this->m_ulasan->inputUlasan($data, 'ulasan');

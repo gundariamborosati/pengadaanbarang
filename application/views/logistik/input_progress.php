@@ -121,12 +121,8 @@
                                     <div class="col-lg-6">
                                         
                                         <?php echo form_open('c_progress/inputProgress'); ?>
-                                            <div class="form-group">
-                                                <label>Tanggal</label>
-                                                <input name="tanggal" class="form-control" type="date" required>
-                                             
-                                            </div>
                                           
+                  <!--                         
                                              <div class="form-group ">
                       <label >nama customer</label>
                      
@@ -135,7 +131,7 @@
                            <?php
                            if($username){
                              foreach($username as $d){
-                               echo "<option value='$d->username'>$d->nama_perusahaan</option>";
+                               echo "<option value='$d->nama_perusahaan'>$d->nama_perusahaan</option>";
                               }
                             }
                           ?>
@@ -155,8 +151,20 @@
                           ?>
                         </select>
                       </div>
-                      
-                    
+                       -->
+                    <label>Jenis Layanan</label>
+                  <select class="form-control" name="nama_vendor" id="nama_vendor">
+                  <?php foreach($vendor as $l){ ?>
+                  <option value="<?php echo $l['username']; ?>"><?php echo $l['nama_perusahaan']; ?>   </option>
+                  <?php } ?>
+                  </select>
+                     <label>Jenis Layanan</label>
+                  <select class="form-control" name="nama_customer" id="nama_customer">
+                  <?php foreach($customer as $l){ ?>
+                  <option value="<?php echo $l['username']; ?>"><?php echo $l['nama_perusahaan']; ?>   </option>
+                  <?php } ?>
+                  </select>
+                                
                                               
                                               <div class="form-group">
                                                 <label>progress</label>
